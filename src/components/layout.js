@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import ThemeContext from '../context/ThemeContext'
 import Header from './header'
+import Footer from './footer'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -13,6 +14,7 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            description
           }
         }
       }
@@ -21,24 +23,11 @@ const Layout = ({ children }) => (
       <ThemeContext.Consumer>
         {theme => (
           <div className={theme.dark ? 'dark' : 'light'}>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <div
-              style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `0px 1.0875rem 1.45rem`,
-                paddingTop: 0,
-              }}
-            >
+            <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.site.siteMetadata.description}/>
+            <div className="container">
               {children}
-              <footer>
-                © {new Date().getFullYear()}, Starter built with
-                {` `}
-                <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-                {` `}by{` `}
-                <a href="https://n8finch.com" target="_blank" rel="noopener noreferrer">Nate Finch</a>
-              </footer>
             </div>
+            <Footer/>
           </div>
         )}
       </ThemeContext.Consumer>

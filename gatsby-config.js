@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `WP GraphQL Gatsby Starter`,
-    description: `Keeping it clever...`,
+    title: `Nate Finch`,
+    description: `In all the things, keeping it clever...🤓`,
     author: `@n8finch`,
   },
   plugins: [
@@ -23,7 +23,7 @@ module.exports = {
         // This is field under which it's accessible
         fieldName: `wpgraphql`,
         // Url to query from
-        url: `https://dev-gatsby-wpgraphql-starter.pantheonsite.io/graphql`,
+        url: `https://dev-n8finch.pantheonsite.io/graphql`,
       },
     },
     {
