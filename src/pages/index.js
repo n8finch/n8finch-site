@@ -25,11 +25,13 @@ const IndexPage = ({data}) => (
       ))}
     <br/>
     <Link to={`/blog`}>See all Blog Posts...</Link>
+
     <br/>
     <br/>
     <hr/>
     <br/>
-    <h2>Talks<span role="img" aria-label="writing hand">✍️</span></h2>
+
+    <h2>Talks<span role="img" aria-label="talks">🗣️</span></h2>
       {data.wpgraphql.talks.edges.map(({ node }) => (
         <div key={node.slug}>
           <Link to={`/${node.slug}`}>
