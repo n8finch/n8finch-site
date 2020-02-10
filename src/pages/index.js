@@ -15,7 +15,7 @@ const IndexPage = ({data}) => (
     <hr/>
     <br/>
     <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
-      {data.wpgraphql.posts.edges.map(({ node }) => (
+      {data.wpgraphql.blogs.edges.map(({ node }) => (
         <div key={node.slug}>
           <Link to={`/${node.slug}`}>
             <div dangerouslySetInnerHTML={{ __html: node.title }} />
@@ -23,11 +23,27 @@ const IndexPage = ({data}) => (
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       ))}
-      <br/>
-      <Link to={`/blog`}>See all Blog Posts...</Link>
-      <br/>
-      <hr/>
-      <br/>
+    <br/>
+    <Link to={`/blog`}>See all Blog Posts...</Link>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
+    <h2>Talks<span role="img" aria-label="writing hand">✍️</span></h2>
+      {data.wpgraphql.talks.edges.map(({ node }) => (
+        <div key={node.slug}>
+          <Link to={`/${node.slug}`}>
+            <div dangerouslySetInnerHTML={{ __html: node.title }} />
+          </Link>
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        </div>
+      ))}
+    <br/>
+    <Link to={`/talks`}>See all Talks...</Link>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
 
     <h2>Categories</h2>
       {data.wpgraphql.categories.edges.map(({ node }) => (
@@ -46,50 +62,41 @@ export default IndexPage
 export const pageQuery = graphql`
   query GET_POSTS {
     wpgraphql {
-        posts(first: 7, after: null) {
-            edges {
-                node {
-                    databaseId
-                    slug
-                    title
-                    date
-                    content(format: RENDERED)
-                    featuredImage {
-                        altText
-                        link
-                        mediaItemUrl
-                        uri
-                    }
-                }
-            }
-        }
-        pages(first: 1000, after: null) {
-            edges {
-                node {
-                    databaseId
-                    slug
-                    title
-                    date
-                    content(format: RENDERED)
-                    featuredImage {
-                        altText
-                        link
-                        mediaItemUrl
-                        uri
-                    }
-                }
-            }
-        }
-        categories(first: 1000) {
+        blogs: posts(first: 6, after: null, where: {categoryName: "blog"}) {
           edges {
             node {
               databaseId
-              name
               slug
+              title
+              date
+              content(format: RENDERED)
+              featuredImage {
+                altText
+                link
+                mediaItemUrl
+                uri
+              }
             }
           }
         }
-        tags(first: 1000) {
+        talks: posts(first: 100, after: null, where: {categoryName: "talks"}) {
+          edges {
+            node {
+              databaseId
+              slug
+              title
+              date
+              content(format: RENDERED)
+              featuredImage {
+                altText
+                link
+                mediaItemUrl
+                uri
+              }
+            }
+          }
+        }
+        categories(first: 1000) {
           edges {
             node {
               databaseId

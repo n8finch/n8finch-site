@@ -27,7 +27,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query GET_BLOG_POSTS {
     wpgraphql {
-        posts(first: 1000, after: null) {
+        posts(first: 1000, after: null, where: {categoryName: "blog"}) {
             edges {
                 node {
                     databaseId
