@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Menu from './menu'
+import SocialNav from './social-nav'
 
 import ThemeContext from "../context/ThemeContext"
 
@@ -19,12 +20,13 @@ const Header = ({ siteTitle, siteDescription }) => (
                 }}
               >
                 <strong>{siteTitle}</strong>
+                <br/>
+                <small><em>{siteDescription}</em></small>
               </Link>
-              <br/>
-            <small><em>{siteDescription}</em></small>
           </div>
           
           <Menu/>
+          <SocialNav/>
 
           <button className="dark-switcher" onClick={theme.toggleDark}>
             {theme.dark ? <span>☀</span> : <span>☾</span>}

@@ -647,8 +647,8 @@ pre tt:after {
 a {
   color: rgb(0, 0, 0,.8);
   display: inline-block;
-  /* min-width: 50px;
-  min-height: 50px; */
+  min-width: 50px;
+  min-height: 50px;
 }
 
 nav {
@@ -701,6 +701,31 @@ nav a + ul.sub-nav:hover {
 nav ul.sub-nav li {
   margin: 5px;
 }
+
+
+nav.social-navigation {
+  position: absolute;
+  top: 1px;
+  right: 50px;
+}
+
+ul#menu-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu-social span.screen-reader-text {
+  position: absolute;
+  left: -99999px;
+  height: 1px;
+}
+
+#menu-social svg.icon {
+  max-height: 40px;
+  max-width: 40px;
+}
+
 
 
 

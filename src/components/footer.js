@@ -3,10 +3,9 @@ import React from "react"
 
 import ThemeContext from "../context/ThemeContext"
 
-const Header = ({ siteTitle, siteDescription }) => (
+const Footer = ({ siteTitle, siteDescription }) => (
   <ThemeContext.Consumer>
     {theme => (
-      
         <footer className="container light">
             <br/>
             <hr/>
@@ -20,14 +19,14 @@ const Header = ({ siteTitle, siteDescription }) => (
   </ThemeContext.Consumer>
 )
 
-Header.propTypes = {
+Footer.propTypes = {
   siteTitle: PropTypes.string,
   siteDescription: PropTypes.string,
 }
 
-Header.defaultProps = {
+Footer.defaultProps = {
   siteTitle: ``,
   siteDescription: ``,
 }
 
-export default Header
+export default Footer
