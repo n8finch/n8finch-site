@@ -21,7 +21,7 @@ const Header = ({ siteTitle, siteDescription }) => (
               >
                 <strong>{siteTitle}</strong>
                 <br/>
-                <small><em>{siteDescription}</em></small>
+                <small><em>{siteDescription}</em><span role="img" aria-label="nerd face">🤓</span></small>
               </Link>
           </div>
           
