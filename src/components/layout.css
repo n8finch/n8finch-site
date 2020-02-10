@@ -729,6 +729,7 @@ ul#menu-social {
 
 
 
+
 /* Dark mode styles */
 .dark-switcher {
   color: rgba(0, 0, 0, .8);
@@ -764,4 +765,38 @@ ul#menu-social {
 .dark a,
 .dark a:visited {
   color: #fff;
+}
+
+/* Home Page */
+.box-wrapper-first {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .box-wrapper-first {
+    grid-template-columns: 1fr;
+  }
+}
+
+.box {
+  padding: 20px;
+}
+
+.box.posts {
+  grid-column: col1-start / col3-start;
+  grid-row: row1-start ;
+}
+.box.talks {
+  grid-column: col3-start ;
+  grid-row: row1-start / row2-end;
+}
+.c {
+  grid-column: col1-start;
+  grid-row: row2-start ;
+}
+.d {
+  grid-column: col2-start ;
+  grid-row: row2-start ;
 }

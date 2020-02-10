@@ -14,34 +14,35 @@ const IndexPage = ({data}) => (
     <br/>
     <hr/>
     <br/>
-    <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
-      {data.wpgraphql.blogs.edges.map(({ node }) => (
-        <div key={node.slug}>
-          <Link to={`/${node.slug}`}>
-            <div dangerouslySetInnerHTML={{ __html: node.title }} />
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        </div>
-      ))}
-    <br/>
-    <Link to={`/blog`}>See all Blog Posts...</Link>
+    <div className="box-wrapper-first">
+      <div className="box box-posts">
+        <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
+          {data.wpgraphql.blogs.edges.map(({ node }) => (
+            <div key={node.slug}>
+              <Link to={`/${node.slug}`}>
+                <div dangerouslySetInnerHTML={{ __html: node.title }} />
+              </Link>
+              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          ))}
+        <br/>
+        <Link to={`/blog`}>See all Blog Posts...</Link>
+      </div>
+      <div className="box box-talks">
+        <h2>Talks<span role="img" aria-label="talks">🗣️</span></h2>
+          {data.wpgraphql.talks.edges.map(({ node }) => (
+            <div key={node.slug}>
+              <Link to={`/${node.slug}`}>
+                <div dangerouslySetInnerHTML={{ __html: node.title }} />
+              </Link>
+              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          ))}
+        <br/>
+        <Link to={`/talks`}>See all Talks...</Link>
+      </div>
+    </div>
 
-    <br/>
-    <br/>
-    <hr/>
-    <br/>
-
-    <h2>Talks<span role="img" aria-label="talks">🗣️</span></h2>
-      {data.wpgraphql.talks.edges.map(({ node }) => (
-        <div key={node.slug}>
-          <Link to={`/${node.slug}`}>
-            <div dangerouslySetInnerHTML={{ __html: node.title }} />
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        </div>
-      ))}
-    <br/>
-    <Link to={`/talks`}>See all Talks...</Link>
     <br/>
     <br/>
     <hr/>
