@@ -1,7 +1,5 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Menu from './menu'
 
 import ThemeContext from "../context/ThemeContext"
 
@@ -16,8 +14,7 @@ const Header = ({ siteTitle, siteDescription }) => (
             © {new Date().getFullYear()}, A labor of ❤️, built on
             {` `}
             <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-            {` `}by{` `}
-            <a href="https://n8finch.com" target="_blank" rel="noopener noreferrer">Nate Finch</a>
+            {` `}by Nate Finch
         </footer>
     )}
   </ThemeContext.Consumer>

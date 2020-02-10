@@ -12,18 +12,16 @@ const Header = ({ siteTitle, siteDescription }) => (
       <div className="light">
         <div className="container main-header">
           <div>
-            <h1 style={{ margin: 0 }}>
-
               <Link
                 to="/"
                 style={{
                   textDecoration: `none`,
                 }}
               >
-                {siteTitle}
+                <strong>{siteTitle}</strong>
               </Link>
-            </h1>
-            <p>{siteDescription}</p>
+              <br/>
+            <small><em>{siteDescription}</em></small>
           </div>
           
           <Menu/>

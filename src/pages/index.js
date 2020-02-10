@@ -8,13 +8,13 @@ import SEO from "../components/seo"
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" description="" />
-    <p>Hey y'all, I'm Nate.👋</p>
-    <p>VP of Development at The Digital Ring, a full-service digital marketing agency in Madison, Wisconsin 🧀.</p>
+    <h1>Hey y'all, I'm Nate.<span role="img" aria-label="waving hello">👋</span></h1>
+    <p>VP of Development at The Digital Ring, a full-service digital marketing agency in Madison, Wisconsin <span role="img" aria-label="cheese, mmmmm">🧀</span>.</p>
     <p>I'm always learning, always trying new stuff, always breaking things and learning again.</p> <p>Married with two awesome daughters and loving it.</p>
     <br/>
     <hr/>
     <br/>
-    <h2>Latest Posts ✍️</h2>
+    <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
       {data.wpgraphql.posts.edges.map(({ node }) => (
         <div key={node.slug}>
           <Link to={`/${node.slug}`}>

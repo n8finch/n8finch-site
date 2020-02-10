@@ -67,7 +67,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
   margin: 0.67em 0;
 }
 mark {
@@ -240,7 +240,7 @@ h1 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.1;
 }
 h2 {
@@ -640,14 +640,15 @@ pre tt:after {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding: 3rem 1rem;
 }
 
 /* For Accessibility */
 a {
   color: rgb(0, 0, 0,.8);
   display: inline-block;
-  min-width: 50px;
-  min-height: 50px;
+  /* min-width: 50px;
+  min-height: 50px; */
 }
 
 nav {
@@ -657,6 +658,7 @@ nav {
 
 nav a {
   text-decoration: none;
+  transition: 1s all ease;
 }
 
 nav a:hover {
