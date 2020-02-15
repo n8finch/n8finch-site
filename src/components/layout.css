@@ -772,8 +772,18 @@ ul#menu-social {
 /* Home Page */
 .box-wrapper-first {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-columns: 2fr 1fr;
+}
+
+.introduction a {
+  min-height: unset;
+  min-width: unset;
+}
+
+.introduction img {
+  border-radius: 50%;
+  max-width: 250px;
 }
 
 @media (max-width: 600px) {
@@ -783,22 +793,27 @@ ul#menu-social {
 }
 
 .box {
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 }
 
 .box.posts {
   grid-column: col1-start / col3-start;
   grid-row: row1-start ;
 }
+
+a.blog-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.blog-image {
+  max-width: 50px;
+  margin: 0 10px 0 0;
+}
+
 .box.talks {
   grid-column: col3-start ;
   grid-row: row1-start / row2-end;
-}
-.c {
-  grid-column: col1-start;
-  grid-row: row2-start ;
-}
-.d {
-  grid-column: col2-start ;
-  grid-row: row2-start ;
 }

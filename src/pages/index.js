@@ -9,8 +9,17 @@ const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" description="" />
     <h1>Hey y'all, I'm Nate.<span role="img" aria-label="waving hello">👋</span></h1>
-    <p>VP of Development at The Digital Ring, a full-service digital marketing agency in Madison, Wisconsin <span role="img" aria-label="cheese, mmmmm">🧀</span>.</p>
-    <p>I'm always learning, always trying new stuff, always breaking things and learning again.</p> <p>Married with two awesome daughters and loving it.</p>
+    <div className="introduction box-wrapper-first">
+      <div className="box">
+        <p>I love <strong>solving problems</strong>, <strong>learning new things</strong>, and <Link to="/the-trifecta-of-goodness"><strong>helping people</strong>.</Link></p>
+        <p>By day, I'm <strong>VP of Development</strong> at <a href="https://thedigitalring.com" target="_blank" rel="noopener noreferrer"><strong>The Digital Ring</strong></a>, a full-service digital marketing agency in Madison, Wisconsin <span role="img" aria-label="cheese, mmmmm">🧀</span>.</p>
+        <p>I share what I know and learn <Link to="/blog"><strong>on this site</strong></Link> as well as <Link to="talks"><strong>speaking</strong></Link> at user groups, panels, and conferences.</p>
+        <p>Wanna chat about something, <Link to="/contact"><strong>reach out</strong></Link> and I'lllllll be therrrrre...🎶</p>
+      </div>
+      <div className="box">
+        <img src={data.wpgraphql.natepic.sourceUrl} alt="That's me, Nate"/>
+      </div>
+    </div>  
     <br/>
     <hr/>
     <br/>
@@ -18,12 +27,11 @@ const IndexPage = ({data}) => (
       <div className="box box-posts">
         <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
           {data.wpgraphql.blogs.edges.map(({ node }) => (
-            <div key={node.slug}>
-              <Link to={`/${node.slug}`}>
-                <div dangerouslySetInnerHTML={{ __html: node.title }} />
+              <Link className="blog-link" key={node.slug} to={`/${node.slug}`}>
+                    <img className="blog-image" src={node.featuredImage.sourceUrl} alt={node.title}/>
+                    <div dangerouslySetInnerHTML={{ __html: node.title }} />
+                  {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
               </Link>
-              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
           ))}
         <br/>
         <Link to={`/blog`}>See all Blog Posts...</Link>
@@ -65,49 +73,51 @@ export default IndexPage
 export const pageQuery = graphql`
   query GET_POSTS {
     wpgraphql {
-        blogs: posts(first: 6, after: null, where: {categoryName: "blog"}) {
-          edges {
-            node {
-              databaseId
-              slug
-              title
-              date
-              content(format: RENDERED)
-              featuredImage {
-                altText
-                link
-                mediaItemUrl
-                uri
-              }
+      natepic: mediaItem(id: "2030", idType: DATABASE_ID) {
+        sourceUrl(size: MEDIUM)
+      }
+      blogs: posts(first: 6, after: null, where: {categoryName: "blog"}) {
+        edges {
+          node {
+            databaseId
+            slug
+            title
+            date
+            excerpt
+            content(format: RENDERED)
+            featuredImage {
+              altText
+              sourceUrl(size: THUMBNAIL)
             }
           }
         }
-        talks: posts(first: 100, after: null, where: {categoryName: "talks"}) {
-          edges {
-            node {
-              databaseId
-              slug
-              title
-              date
-              content(format: RENDERED)
-              featuredImage {
-                altText
-                link
-                mediaItemUrl
-                uri
-              }
+      }
+      talks: posts(first: 100, after: null, where: {categoryName: "talks"}) {
+        edges {
+          node {
+            databaseId
+            slug
+            title
+            date
+            content(format: RENDERED)
+            featuredImage {
+              altText
+              link
+              mediaItemUrl
+              uri
             }
           }
         }
-        categories(first: 1000) {
-          edges {
-            node {
-              databaseId
-              name
-              slug
-            }
+      }
+      categories(first: 1000) {
+        edges {
+          node {
+            databaseId
+            name
+            slug
           }
         }
+      }
     }
   }
 `
