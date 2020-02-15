@@ -724,6 +724,10 @@ ul#menu-social {
   max-width: 40px;
 }
 
+.dark #menu-social svg path {
+  fill: white;
+}
+
 
 
 
