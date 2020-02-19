@@ -38,14 +38,15 @@ const IndexPage = ({data}) => (
       </div>
       <div className="box box-talks">
         <h2>Talks<span role="img" aria-label="talks">🗣️</span></h2>
+            <ul>
+
           {data.wpgraphql.talks.edges.map(({ node }) => (
-            <div key={node.slug}>
-              <Link to={`/${node.slug}`}>
-                <div dangerouslySetInnerHTML={{ __html: node.title }} />
-              </Link>
-              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            <li key={node.slug}>
+              <Link to={`/${node.slug}`}>{node.title}</Link>
+              {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
+            </li>
           ))}
+            </ul>
         <br/>
         <Link to={`/talks`}>See all Talks...</Link>
       </div>

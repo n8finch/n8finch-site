@@ -818,6 +818,16 @@ a.blog-link {
   grid-row: row1-start / row2-end;
 }
 
+.box-talks ul {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.box-talks a {
+  min-height: unset;
+  min-width: unset;
+}
+
 .blog-template h1 {
   text-align: center;
 }
