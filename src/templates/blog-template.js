@@ -8,14 +8,17 @@ import SEO from "../components/seo"
 const SecondPage = ({data}) => (
   <Layout>
     <SEO title={data.wpgraphql.post.title} description={data.wpgraphql.post.excerpt}/>
-    
-    {data.wpgraphql.post.featuredImage && (
-      <img src={data.wpgraphql.post.featuredImage.mediaItemUrl} alt={data.wpgraphql.post.title} />
-    )}
+    <div className="blog-template">
 
-    <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
+      {data.wpgraphql.post.featuredImage && (
+        <img className="blog-featured-image" src={data.wpgraphql.post.featuredImage.mediaItemUrl} alt={data.wpgraphql.post.title} />
+      )}
 
-    <div dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
+      <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
+
+      <div className="content-container" dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
+
+    </div>
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>

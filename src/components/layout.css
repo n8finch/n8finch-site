@@ -817,3 +817,24 @@ a.blog-link {
   grid-column: col3-start ;
   grid-row: row1-start / row2-end;
 }
+
+.blog-template h1 {
+  text-align: center;
+}
+
+figure.aligncenter,
+.blog-template img {
+  text-align: center;
+}
+
+.blog-featured-image {
+  margin: 1rem auto;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.content-container {
+  margin: 1rem auto;
+  max-width: 750px;
+}
