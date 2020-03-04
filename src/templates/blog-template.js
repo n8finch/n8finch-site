@@ -9,7 +9,6 @@ const SecondPage = ({data}) => (
   <Layout>
     <SEO title={data.wpgraphql.post.title} description={data.wpgraphql.post.excerpt}/>
     <div className="blog-template">
-      {console.log(data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid)}
       {data.wpgraphql.post.featuredImage && (
         <Img
           fluid={data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid}

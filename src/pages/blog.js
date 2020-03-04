@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import { graphql } from 'gatsby'
+import { Link, graphql } from "gatsby"
+import Img from 'gatsby-image'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,11 +12,23 @@ const IndexPage = ({data}) => (
     <p>A list of all the blogs I've written... this goes back pretty far...</p>
     <h2>Posts</h2>
       {data.wpgraphql.posts.edges.map(({ node }) => (
-        <div key={node.slug}>
-          <Link to={`/${node.slug}`}>
-            <div dangerouslySetInnerHTML={{ __html: node.title }} />
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <div className="blog-archive-container" key={node.slug}>
+          {null !== node.featuredImage && (
+            <div className="blog-archive-image-container">
+            <Link to={`/${node.slug}`}>
+              <Img
+                fixed={node.featuredImage.imageFile.childImageSharp.fixed}
+                alt={node.title}
+              />
+            </Link>
+            </div>
+          )}
+          <div>
+            <Link to={`/${node.slug}`}>
+              <h3 dangerouslySetInnerHTML={{ __html: node.title }} />
+            </Link>
+            <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          </div>
         </div>
       ))}
   </Layout>
@@ -34,12 +46,23 @@ export const pageQuery = graphql`
                     slug
                     title
                     date
+                    excerpt
                     content(format: RENDERED)
                     featuredImage {
-                        altText
-                        link
-                        mediaItemUrl
-                        uri
+                      altText
+                      title(format: RENDERED)
+                      mediaItemUrl
+                      slug
+                      sourceUrl
+                      mediaItemId
+                      modified
+                      imageFile {
+                        childImageSharp {
+                          fixed(width: 250) {
+                            ...GatsbyImageSharpFixed_tracedSVG
+                          }
+                        }
+                      }
                     }
                 }
             }

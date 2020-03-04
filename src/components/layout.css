@@ -809,7 +809,7 @@ a.blog-link {
 }
 
 .blog-image {
-  max-width: 50px;
+  min-width: 50px;
   margin: 0 10px 0 0;
 }
 
@@ -828,7 +828,12 @@ a.blog-link {
   min-width: unset;
 }
 
+.blog-template {
+  word-break: break-word;
+}
+
 .blog-template h1 {
+  margin: 2rem auto;
   text-align: center;
 }
 
@@ -847,4 +852,13 @@ figure.aligncenter,
 .content-container {
   margin: 1rem auto;
   max-width: 750px;
+}
+
+.blog-archive-container {
+  margin-bottom: 4rem;
+  display: flex;
+}
+
+.blog-archive-container .blog-archive-image-container {
+  margin-right: 1rem;
 }

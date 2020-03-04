@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import { graphql } from 'gatsby'
+import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -27,11 +27,14 @@ const IndexPage = ({data}) => (
       <div className="box box-posts">
         <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
           {data.wpgraphql.blogs.edges.map(({ node }) => (
+            <>
               <Link className="blog-link" key={node.slug} to={`/${node.slug}`}>
-                    <img className="blog-image" src={node.featuredImage.sourceUrl} alt={node.title}/>
+                    {/* <img className="blog-image" src={node.featuredImage.sourceUrl} alt={node.title}/> */}
+                    <Img className="blog-image" fixed={node.featuredImage.imageFile.childImageSharp.fixed} alt={node.title}/>
                     <div dangerouslySetInnerHTML={{ __html: node.title }} />
-                  {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
               </Link>
+                  {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
+            </>
           ))}
         <br/>
         <Link to={`/blog`}>See all Blog Posts...</Link>
@@ -42,7 +45,7 @@ const IndexPage = ({data}) => (
 
           {data.wpgraphql.talks.edges.map(({ node }) => (
             <li key={node.slug}>
-              <Link to={`/${node.slug}`}>{node.title}</Link>
+              <Link to={`/${node.slug}`} dangerouslySetInnerHTML={{ __html: node.title }}></Link>
               {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
             </li>
           ))}
@@ -88,7 +91,19 @@ export const pageQuery = graphql`
             content(format: RENDERED)
             featuredImage {
               altText
-              sourceUrl(size: THUMBNAIL)
+              title(format: RENDERED)
+              mediaItemUrl
+              slug
+              sourceUrl
+              mediaItemId
+              modified
+              imageFile {
+                childImageSharp {
+                  fixed(width: 50) {
+                    ...GatsbyImageSharpFixed_tracedSVG
+                  }
+                }
+              }
             }
           }
         }
