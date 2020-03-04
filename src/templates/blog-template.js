@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
+import Img from 'gatsby-image'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,9 +9,12 @@ const SecondPage = ({data}) => (
   <Layout>
     <SEO title={data.wpgraphql.post.title} description={data.wpgraphql.post.excerpt}/>
     <div className="blog-template">
-
+      {console.log(data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid)}
       {data.wpgraphql.post.featuredImage && (
-        <img className="blog-featured-image" src={data.wpgraphql.post.featuredImage.mediaItemUrl} alt={data.wpgraphql.post.title} />
+        <Img
+          fluid={data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid}
+          alt={data.wpgraphql.post.title}
+        />
       )}
 
       <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
@@ -46,6 +49,16 @@ export const query = graphql`
           title(format: RENDERED)
           mediaItemUrl
           slug
+          sourceUrl
+          mediaItemId
+          modified
+          imageFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
         }
       }
     }

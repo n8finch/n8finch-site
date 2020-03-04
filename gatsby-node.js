@@ -1,4 +1,5 @@
 const path = require(`path`);
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -230,7 +231,6 @@ exports.createResolvers = ({
             }
 
             if (fileNode) {
-              console.log('got file node');
               return fileNode;
             }
           }
@@ -240,3 +240,43 @@ exports.createResolvers = ({
     }
   });
 }
+
+// Get and Cache images from WP
+// https://dev.to/nevernull/gatsby-with-wpgraphql-acf-and-gatbsy-image-72m
+// exports.createResolvers = async (
+//   {
+//     actions,
+//     cache,
+//     createNodeId,
+//     createResolvers,
+//     store,
+//     reporter,
+//   },
+// ) => {
+//   const { createNode } = actions
+
+//   await createResolvers({
+//     WPGraphQL_MediaItem: {
+//       imageFile: {
+//         type: "File",
+//         async resolve(source) {
+
+//           let sourceUrl = source.sourceUrl;
+
+//           if (source.mediaItemUrl !== undefined) {
+//             sourceUrl = source.mediaItemUrl;
+//           }
+
+//           return await createRemoteFileNode({
+//             url: encodeURI(sourceUrl),
+//             store,
+//             cache,
+//             createNode,
+//             createNodeId,
+//             reporter,
+//           })
+//         },
+//       },
+//     },
+//   })
+// }
