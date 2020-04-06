@@ -58,6 +58,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:url`,
+          content: `https://n8finch.com`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
