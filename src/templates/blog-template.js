@@ -7,7 +7,8 @@ import SEO from "../components/seo"
 
 const SecondPage = ({data}) => (
   <Layout>
-    <SEO title={data.wpgraphql.post.title} description={data.wpgraphql.post.excerpt}/>
+    <SEO title={data.wpgraphql.post.title} description={data.wpgraphql.post.excerpt} image={data.wpgraphql.post.featuredImage && data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid.src}/>
+
     <div className="blog-template">
       {data.wpgraphql.post.featuredImage && (
         <Img

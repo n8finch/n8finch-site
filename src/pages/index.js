@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 const IndexPage = ({data}) => (
   <Layout>
-    <SEO title="Home" description="" />
+    <SEO title="Home" description="I love solving problems, learning new things, and helping people. By day, I'm VP of Development at The Digital Ring, a full-service digital marketing agency in Madison, Wisconsin 🧀." />
     <h1>Hey y'all, I'm Nate.<span role="img" aria-label="waving hello">👋</span></h1>
     <div className="introduction box-wrapper-first">
       <div className="box">
