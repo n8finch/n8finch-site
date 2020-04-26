@@ -5,6 +5,9 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
+import NewsletterSignup from '../components/newsletter'
+
+
 const SecondPage = ({data}) => (
   <Layout>    
     <SEO 
@@ -19,6 +22,8 @@ const SecondPage = ({data}) => (
     <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
 
     <div dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
+
+    <NewsletterSignup/>
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>

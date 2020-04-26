@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import NewsletterSignup from '../components/newsletter'
+
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -56,8 +58,8 @@ const IndexPage = ({data}) => (
     </div>
 
     <br/>
-    <br/>
-    <hr/>
+
+    <NewsletterSignup/>
     <br/>
 
     <h2>Categories</h2>

@@ -1,3 +1,9 @@
+/* COLORS */
+/* grape: #94618e
+eggplant: #49274a
+sand: #f4decb
+shell: #f8eee7 */
+
 html {
   font-family: BlinkMacSystemFont,-apple-system,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
   -ms-text-size-adjust: 100%;
@@ -861,4 +867,36 @@ figure.aligncenter,
 
 .blog-archive-container .blog-archive-image-container {
   margin-right: 1rem;
+}
+
+.newsletter-signup {
+  background-color: #94618e33;
+  margin: 1rem auto;
+  padding: 2rem;
+  max-width: 750px;
+  text-align: center;
+}
+
+.newsletter-signup form {
+  margin: 1rem auto;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-signup form > * {
+  margin-bottom: 1rem;
+}
+
+.newsletter-signup form input[type="submit"] {
+  background-color: #94618e;
+  color: white;
+  transition: .25s all ease;
+}
+
+.newsletter-signup form input[type="submit"]:hover {
+  background-color: #f8eee7;
+  color: rgb(0, 0, 0,.8);
+  cursor: pointer;
+  transition: .25s all ease;
 }

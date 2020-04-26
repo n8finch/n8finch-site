@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import NewsletterSignup from '../components/newsletter'
 
 const SecondPage = ({data}) => (
   <Layout>
@@ -25,6 +26,8 @@ const SecondPage = ({data}) => (
       <div className="content-container" dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
 
     </div>
+
+    <NewsletterSignup/>
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>
