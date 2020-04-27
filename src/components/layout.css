@@ -659,12 +659,36 @@ pre tt:after {
   padding: 3rem 1rem;
 }
 
-/* For Accessibility */
+.btn.btn-primary {
+  background-color: #94618e;
+  color: white;
+  padding: .5rem 2rem;
+  transition: .25s all ease;
+}
+
+.btn.btn-primary:hover {
+  background-color: #f8eee7;
+  color: rgb(0, 0, 0,.8);
+  cursor: pointer;
+  transition: .25s all ease;
+}
+
+input,
+textarea{
+  padding: .5rem;
+}
+
 a {
   color: rgb(0, 0, 0,.8);
-  display: inline-block;
-  min-width: 50px;
-  min-height: 50px;
+}
+
+/* For Accessibility */
+@media (max-width: 576px) {
+  a {
+    display: inline-block;
+    min-width: 50px;
+    min-height: 50px;
+  }
 }
 
 nav {
@@ -900,15 +924,16 @@ figure.aligncenter,
   margin-bottom: 1rem;
 }
 
-.newsletter-signup form input[type="submit"] {
-  background-color: #94618e;
-  color: white;
-  transition: .25s all ease;
+.contact-form {
+  background-color: #f8eee7;
+  margin: 1rem auto;
+  padding: 2rem;
+  max-width: 750px;
 }
 
-.newsletter-signup form input[type="submit"]:hover {
-  background-color: #f8eee7;
-  color: rgb(0, 0, 0,.8);
-  cursor: pointer;
-  transition: .25s all ease;
+.contact-form input,
+.contact-form textarea{
+  border: 1px solid #efefef;
+  max-width: 500px;
+  width: 100%;
 }

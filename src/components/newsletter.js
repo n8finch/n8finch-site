@@ -9,13 +9,13 @@ const NewsletterSignup = () => (
         action="https://buttondown.email/api/emails/embed-subscribe/n8finch"
         method="post"
         target="popupwindow"
-        onsubmit="window.open('https://buttondown.email/n8finch', 'popupwindow')"
+        onSubmit="window.open('https://buttondown.email/n8finch', 'popupwindow')"
         className="embeddable-buttondown-form"
         >
-            <label for="bd-email">Enter your email:</label>
+            <label htmlFor="bd-email">Enter your email:</label>
             <input type="email" name="email" id="bd-email" placeholder="Your email..."/>
             <input type="hidden" value="1" name="embed"/>
-            <input type="submit" value="Subscribe"/>
+            <input className="btn btn-primary" type="submit" value="Subscribe"/>
         </form>
         <small>*No spam, no selling your info, none of that crazy stuff.</small>
 
