@@ -6,12 +6,12 @@ const ContactForm = () => (
 
     <p>I look forward to hearing from you!</p>
 
-    <form name="contact-form-n8finch" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-      <p class="sr-only">
+    <form form name="contact" method="POST" data-netlify="true">
+      {/* <p class="sr-only">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-      </p>
+      </p> */}
       <p>
-        <label>Email:<br/> <input type="text" name="email" /></label>
+        <label>Email:<br/> <input type="email" name="email" /></label>
       </p>
       <p>
         <label>Message:<br/> <textarea name="message" rows="6"></textarea></label>
