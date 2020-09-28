@@ -9,12 +9,12 @@ import NewsletterSignup from '../components/newsletter'
 
 const IndexPage = ({data}) => (
   <Layout>
-    <SEO title="Home" description="I love solving problems, learning new things, and helping people. By day, I'm VP of Development at The Digital Ring, a full-service digital marketing agency in Madison, Wisconsin 🧀." />
+    <SEO title="Home" description="I love solving problems, learning new things, and helping people. By day, I'm a Senior WordPress Developer at Strattic, helping to bring static, secure, speedy, and scalable WordPress to the masses.." />
     <h1>Hey y'all, I'm Nate.<span role="img" aria-label="waving hello">👋</span></h1>
     <div className="introduction box-wrapper-first">
       <div className="box">
         <p>I love <strong>solving problems</strong>, <strong>learning new things</strong>, and <Link to="/the-trifecta-of-goodness"><strong>helping people</strong>.</Link></p>
-        <p>By day, I'm <strong>VP of Development</strong> at <a href="https://thedigitalring.com" target="_blank" rel="noopener noreferrer"><strong>The Digital Ring</strong></a>, a full-service digital marketing agency in Madison, Wisconsin <span role="img" aria-label="cheese, mmmmm">🧀</span>.</p>
+        <p>By day, I'm a <strong>Senior WordPress Developer</strong> at <a href="https://strattic.com" target="_blank" rel="noopener noreferrer"><strong>Strattic</strong></a>, helping to bring static, secure, speedy, and scalable WordPress to the masses.</p>
         <p>I share what I know and learn <Link to="/blog"><strong>on this site</strong></Link> as well as <Link to="talks"><strong>speaking</strong></Link> at user groups, panels, and conferences.</p>
         <p>Wanna chat about something, <Link to="/contact"><strong>reach out</strong></Link> and I'lllllll be therrrrre...🎶</p>
       </div>
