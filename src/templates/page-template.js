@@ -5,25 +5,30 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-import NewsletterSignup from '../components/newsletter'
+import NewsletterSignup from "../components/newsletter"
 
-
-const SecondPage = ({data}) => (
-  <Layout>    
-    <SEO 
+const SecondPage = ({ data }) => (
+  <Layout>
+    <SEO
       title={data.wpgraphql.post.title}
       description={data.wpgraphql.post.excerpt}
-      image={data.wpgraphql.post.featuredImage && `https://n8finch.com${data.wpgraphql.post.featuredImage.node.imageFile.childImageSharp.fluid.src}` }
-    /> 
+      image={
+        data.wpgraphql.post.featuredImage &&
+        `https://n8finch.com${data.wpgraphql.post.featuredImage.node.imageFile.childImageSharp.fluid.src}`
+      }
+    />
     {data.wpgraphql.post.featuredImage && (
-      <img src={data.wpgraphql.post.featuredImage.mediaItemUrl} alt={data.wpgraphql.post.title} />
+      <img
+        src={data.wpgraphql.post.featuredImage.mediaItemUrl}
+        alt={data.wpgraphql.post.title}
+      />
     )}
 
     <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
 
     <div dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
 
-    <NewsletterSignup/>
+    <NewsletterSignup />
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>

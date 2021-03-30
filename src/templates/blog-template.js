@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NewsletterSignup from '../components/newsletter'
 
-const SecondPage = ({data}) => (
+const BlogTemplate = ({data}) => (
   <Layout>
     <SEO 
       title={data.wpgraphql.post.title} 
@@ -33,7 +33,7 @@ const SecondPage = ({data}) => (
   </Layout>
 )
 
-export default SecondPage
+export default BlogTemplate
 
 export const query = graphql`
   query($databaseId: ID!) {
