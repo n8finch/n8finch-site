@@ -32,7 +32,7 @@ const IndexPage = ({data}) => (
             <>
               <Link className="blog-link" key={node.slug} to={`/${node.slug}`}>
                     {/* <img className="blog-image" src={node.featuredImage.sourceUrl} alt={node.title}/> */}
-                    <Img className="blog-image" fixed={node.featuredImage.imageFile.childImageSharp.fixed} alt={node.title}/>
+                    <Img className="blog-image" fixed={node.featuredImage.node.imageFile.childImageSharp.fixed} alt={node.title}/>
                     <div dangerouslySetInnerHTML={{ __html: node.title }} />
               </Link>
                   {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
@@ -92,17 +92,19 @@ export const pageQuery = graphql`
             excerpt
             content(format: RENDERED)
             featuredImage {
-              altText
-              title(format: RENDERED)
-              mediaItemUrl
-              slug
-              sourceUrl
-              mediaItemId
-              modified
-              imageFile {
-                childImageSharp {
-                  fixed(width: 50) {
-                    ...GatsbyImageSharpFixed_tracedSVG
+              node {
+                altText
+                title(format: RENDERED)
+                mediaItemUrl
+                slug
+                sourceUrl
+                mediaItemId
+                modified
+                imageFile {
+                  childImageSharp {
+                    fixed(width: 50) {
+                      ...GatsbyImageSharpFixed_tracedSVG
+                    }
                   }
                 }
               }
@@ -119,10 +121,12 @@ export const pageQuery = graphql`
             date
             content(format: RENDERED)
             featuredImage {
-              altText
-              link
-              mediaItemUrl
-              uri
+              node {
+                altText
+                link
+                mediaItemUrl
+                uri
+              }
             }
           }
         }

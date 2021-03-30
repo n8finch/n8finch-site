@@ -17,7 +17,7 @@ const IndexPage = ({data}) => (
             <div className="blog-archive-image-container">
             <Link to={`/${node.slug}`}>
               <Img
-                fixed={node.featuredImage.imageFile.childImageSharp.fixed}
+                fixed={node.featuredImage.node.imageFile.childImageSharp.fixed}
                 alt={node.title}
               />
             </Link>
@@ -49,17 +49,19 @@ export const pageQuery = graphql`
                     excerpt
                     content(format: RENDERED)
                     featuredImage {
-                      altText
-                      title(format: RENDERED)
-                      mediaItemUrl
-                      slug
-                      sourceUrl
-                      mediaItemId
-                      modified
-                      imageFile {
-                        childImageSharp {
-                          fixed(width: 250) {
-                            ...GatsbyImageSharpFixed_tracedSVG
+                      node {
+                        altText
+                        title(format: RENDERED)
+                        mediaItemUrl
+                        slug
+                        sourceUrl
+                        mediaItemId
+                        modified
+                        imageFile {
+                          childImageSharp {
+                            fixed(width: 250) {
+                              ...GatsbyImageSharpFixed_tracedSVG
+                            }
                           }
                         }
                       }

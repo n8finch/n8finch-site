@@ -19,10 +19,12 @@ exports.createPages = async ({ graphql, actions }) => {
                         date
                         content(format: RENDERED)
                         featuredImage {
+                          node {
                             altText
                             link
                             mediaItemUrl
                             uri
+                          }
                         }
                     }
                 }
@@ -59,10 +61,12 @@ exports.createPages = async ({ graphql, actions }) => {
               date
               content(format: RENDERED)
               featuredImage {
-                altText
-                link
-                mediaItemUrl
-                uri
+                node {
+                  altText
+                  link
+                  mediaItemUrl
+                  uri
+                }
               }
             }
           }

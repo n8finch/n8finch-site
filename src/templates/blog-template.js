@@ -11,12 +11,12 @@ const SecondPage = ({data}) => (
     <SEO 
       title={data.wpgraphql.post.title} 
       description={data.wpgraphql.post.excerpt} 
-      image={data.wpgraphql.post.featuredImage && `https://n8finch.com${data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid.src}`}/>
+      image={data.wpgraphql.post.featuredImage && `https://n8finch.com${data.wpgraphql.post.featuredImage.node.imageFile.childImageSharp.fluid.src}`}/>
 
     <div className="blog-template">
       {data.wpgraphql.post.featuredImage && (
         <Img
-          fluid={data.wpgraphql.post.featuredImage.imageFile.childImageSharp.fluid}
+          fluid={data.wpgraphql.post.featuredImage.node.imageFile.childImageSharp.fluid}
           alt={data.wpgraphql.post.title}
         />
       )}
@@ -51,17 +51,19 @@ export const query = graphql`
         }
         excerpt(format: RENDERED)
         featuredImage {
-          altText
-          title(format: RENDERED)
-          mediaItemUrl
-          slug
-          sourceUrl
-          mediaItemId
-          modified
-          imageFile {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_tracedSVG
+          node {
+            altText
+            title(format: RENDERED)
+            mediaItemUrl
+            slug
+            sourceUrl
+            mediaItemId
+            modified
+            imageFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
               }
             }
           }
