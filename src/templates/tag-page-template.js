@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage = ({data}) => (
+const TagPageTemplate = ({data}) => (
   <Layout>
     <SEO title={data.wpgraphql.tag.name} description={data.wpgraphql.tag.name}/>
     
@@ -24,7 +24,7 @@ const SecondPage = ({data}) => (
   </Layout>
 )
 
-export default SecondPage
+export default TagPageTemplate
 
 export const query = graphql`
   query($databaseId: ID!) {

@@ -7,26 +7,26 @@ import Layout from "../components/layout"
 
 import NewsletterSignup from "../components/newsletter"
 
-const SecondPage = ({ data }) => (
+const PageTemplate = ({ data }) => (
   <Layout>
     <SEO
-      title={data.wpgraphql.post.title}
-      description={data.wpgraphql.post.excerpt}
+      title={data.wpgraphql.page.title}
+      description={data.wpgraphql.page.excerpt}
       image={
-        data.wpgraphql.post.featuredImage &&
-        `https://n8finch.com${data.wpgraphql.post.featuredImage.node.imageFile.childImageSharp.fluid.src}`
+        data.wpgraphql.page.featuredImage &&
+        `https://n8finch.com${data.wpgraphql.page.featuredImage.node.imageFile.childImageSharp.fluid.src}`
       }
     />
-    {data.wpgraphql.post.featuredImage && (
+    {data.wpgraphql.page.featuredImage && (
       <img
-        src={data.wpgraphql.post.featuredImage.mediaItemUrl}
-        alt={data.wpgraphql.post.title}
+        src={data.wpgraphql.page.featuredImage.mediaItemUrl}
+        alt={data.wpgraphql.page.title}
       />
     )}
 
-    <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.title }} />
+    <h1 dangerouslySetInnerHTML={{ __html: data.wpgraphql.page.title }} />
 
-    <div dangerouslySetInnerHTML={{ __html: data.wpgraphql.post.content }} />
+    <div dangerouslySetInnerHTML={{ __html: data.wpgraphql.page.content }} />
 
     <NewsletterSignup />
 
@@ -34,23 +34,15 @@ const SecondPage = ({ data }) => (
   </Layout>
 )
 
-export default SecondPage
+export default PageTemplate
 
 export const query = graphql`
   query($databaseId: ID!) {
     wpgraphql {
-      post(id: $databaseId, idType: DATABASE_ID) {
+      page(id: $databaseId, idType: DATABASE_ID) {
         title
         date
         content(format: RENDERED)
-        categories {
-          edges {
-            node {
-              name
-            }
-          }
-        }
-        excerpt(format: RENDERED)
         featuredImage {
           node {
             altText

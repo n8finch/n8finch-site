@@ -8,7 +8,7 @@ const ContactForm = () => (
 
     <form name="contact-form-n8finch" method="POST" netlify-honeypot="bot-field" data-netlify="true">
       <input type="hidden" name="form-name" value="contact-form-n8finch" />
-      <p class="sr-only">
+      <p className="sr-only">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
       </p>
       <p>

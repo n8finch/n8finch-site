@@ -15,7 +15,7 @@ const Footer = ({ siteTitle, siteDescription }) => (
             <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
             {` `}by Nate Finch
             <br/>
-            <div id="wcb" class="wcb carbonbadge"></div>
+            <div id="wcb" className="wcb carbonbadge"></div>
             <script src="https://unpkg.com/website-carbon-badges@^1/b.min.js" defer></script>
         </footer>
     )}

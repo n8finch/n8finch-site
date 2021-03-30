@@ -926,9 +926,20 @@ figure.aligncenter,
 
 .contact-form {
   background-color: #f8eee7;
+  color: #000;
   margin: 1rem auto;
   padding: 2rem;
   max-width: 750px;
+}
+
+.contact-form a {
+  color: #000 !important;
+  transition: 0.25s all ease;
+  text-decoration: none;
+}
+
+.contact-form a:hover {
+  border-bottom: 1px solid;
 }
 
 .contact-form input,
