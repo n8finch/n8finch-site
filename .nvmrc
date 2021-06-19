@@ -1,1 +1,1 @@
-echo "12.x" > .nvmrc
+12.x
