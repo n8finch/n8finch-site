@@ -41,10 +41,10 @@ export const pageQuery = graphql`
               node {
                 altText
                 title(format: RENDERED)
-                mediaItemUrl
+                databaseId
                 slug
                 sourceUrl
-                mediaItemId
+                databaseId
                 modified
                 imageFile {
                   childImageSharp {

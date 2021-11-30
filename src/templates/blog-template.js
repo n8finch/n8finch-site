@@ -54,7 +54,7 @@ export const query = graphql`
           node {
             altText
             title(format: RENDERED)
-            mediaItemUrl
+            databaseId
             slug
             sourceUrl
             mediaItemId

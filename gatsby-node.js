@@ -22,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
                           node {
                             altText
                             link
-                            mediaItemUrl
+                            databaseId
                             uri
                           }
                         }
@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                   altText
                   link
-                  mediaItemUrl
+                  databaseId
                   uri
                 }
               }
@@ -267,8 +267,8 @@ exports.createResolvers = ({
 
 //           let sourceUrl = source.sourceUrl;
 
-//           if (source.mediaItemUrl !== undefined) {
-//             sourceUrl = source.mediaItemUrl;
+//           if (source.databaseId !== undefined) {
+//             sourceUrl = source.databaseId;
 //           }
 
 //           return await createRemoteFileNode({

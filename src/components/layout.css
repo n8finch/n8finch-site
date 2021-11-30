@@ -673,6 +673,25 @@ pre tt:after {
   transition: .25s all ease;
 }
 
+.btn.btn-primary.active {
+  background-color: #f4decb;
+  color: #49274a;
+}
+
+.btn.btn-secondary {
+  background-color: #49274a;
+  color: white;
+  padding: .5rem 2rem;
+  transition: .25s all ease;
+}
+
+.btn.btn-secondary:hover {
+  background-color: #f8eee7;
+  color: rgb(0, 0, 0,.8);
+  cursor: pointer;
+  transition: .25s all ease;
+}
+
 input,
 textarea{
   padding: .5rem;
@@ -947,4 +966,8 @@ figure.aligncenter,
   border: 1px solid #efefef;
   max-width: 500px;
   width: 100%;
+}
+
+.category-button-list .btn {
+  margin: 4px 4px 0 0;
 }

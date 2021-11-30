@@ -95,7 +95,7 @@ export const pageQuery = graphql`
               node {
                 altText
                 title(format: RENDERED)
-                mediaItemUrl
+                databaseId
                 slug
                 sourceUrl
                 mediaItemId
@@ -124,7 +124,7 @@ export const pageQuery = graphql`
               node {
                 altText
                 link
-                mediaItemUrl
+                databaseId
                 uri
               }
             }

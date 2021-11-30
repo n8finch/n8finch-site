@@ -3,7 +3,7 @@ module.exports = {
     title: `Nate Finch`,
     description: `All the things, keeping it clever...`,
     author: `@n8finch`,
-    image: `https://n8finch.com/images/n8finch-site.jpg`
+    image: `${__dirname}/static/images/n8finch-site.jpg`
   },
   plugins: [
     {

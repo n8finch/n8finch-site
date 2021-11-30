@@ -58,13 +58,26 @@ const BlogList = props => {
   };
 
   const handleCategory = event => {
-    if ("clearTerms" !== event.target.value) {
-      setCategoryTerms(categoryTerms.concat(event.target.value));
+    if ("clearTerms" === event.target.value) {
+      setCategoryTerms([]);
       setSearchTerm("");
       return;
     }
+
+    if (categoryTerms.includes(event.target.value)) {
+      console.log(categoryTerms)
+      const newCats = categoryTerms.filter((value) => {
+        return value !== event.target.value;
+      });
+      console.log(newCats)
+      setCategoryTerms(newCats);
+      setSearchTerm("");
+      return;
+    }
+    
+    setCategoryTerms(categoryTerms.concat(event.target.value));
     setSearchTerm("");
-    setCategoryTerms([]);
+    return;
   };
 
   useEffect(() => {
@@ -105,7 +118,7 @@ const BlogList = props => {
             <button
               key={category}
               className={
-                "btn btn-primary " + -1 < categoryTerms.indexOf(category)
+                (categoryTerms.includes(category))
                   ? "btn btn-primary active"
                   : "btn btn-primary inactive"
               }

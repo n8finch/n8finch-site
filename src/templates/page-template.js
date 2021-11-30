@@ -19,7 +19,7 @@ const PageTemplate = ({ data }) => (
     />
     {data.wpgraphql.page.featuredImage && (
       <img
-        src={data.wpgraphql.page.featuredImage.mediaItemUrl}
+        src={data.wpgraphql.page.featuredImage.databaseId}
         alt={data.wpgraphql.page.title}
       />
     )}
@@ -47,7 +47,7 @@ export const query = graphql`
           node {
             altText
             title(format: RENDERED)
-            mediaItemUrl
+            databaseId
             slug
             imageFile {
               childImageSharp {
