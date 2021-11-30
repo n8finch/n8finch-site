@@ -65,11 +65,10 @@ const BlogList = props => {
     }
 
     if (categoryTerms.includes(event.target.value)) {
-      console.log(categoryTerms)
       const newCats = categoryTerms.filter((value) => {
         return value !== event.target.value;
       });
-      console.log(newCats)
+
       setCategoryTerms(newCats);
       setSearchTerm("");
       return;
