@@ -971,3 +971,12 @@ figure.aligncenter,
 .category-button-list .btn {
   margin: 4px 4px 0 0;
 }
+
+.homepage-categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homepage-categories .homepage-category {
+  margin: 6px 12px;
+}

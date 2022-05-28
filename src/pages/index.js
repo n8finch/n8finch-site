@@ -58,13 +58,15 @@ const IndexPage = ({data}) => (
     <br/>
 
     <h2>Categories</h2>
+    <div class="homepage-categories">
       {data.wpgraphql.categories.edges.map(({ node }) => (
-        <div key={node.slug}>
+        <div class="homepage-category" key={node.slug}>
           <Link to={`/category/${node.slug}`}>
             <div dangerouslySetInnerHTML={{ __html: node.name }} />
           </Link>
         </div>
       ))}
+    </div>
     
   </Layout>
 )
@@ -104,7 +106,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      talks: posts(first: 100, after: null, where: {categoryName: "talks"}) {
+      talks: posts(first: 5, after: null, where: {categoryName: "talks"}) {
         edges {
           node {
             databaseId
