@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NewsletterSignup from '../components/newsletter'
-
+import NateImage from "../components/nate-image"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -19,7 +19,7 @@ const IndexPage = ({data}) => (
         <p>Wanna chat about something, <Link to="/contact"><strong>reach out</strong></Link> and I'lllllll be therrrrre...🎶</p>
       </div>
       <div className="box">
-        <img src={data.wpgraphql.natepic.sourceUrl} alt="That's me, Nate"/>
+        <NateImage/>
       </div>
     </div>  
     <br/>
@@ -29,14 +29,10 @@ const IndexPage = ({data}) => (
       <div className="box box-posts">
         <h2>Latest Posts <span role="img" aria-label="writing hand">✍️</span></h2>
           {data.wpgraphql.blogs.edges.map(({ node }) => (
-            <>
               <Link className="blog-link" key={node.slug} to={`/${node.slug}`}>
-                    {/* <img className="blog-image" src={node.featuredImage.sourceUrl} alt={node.title}/> */}
                     <Img className="blog-image" fixed={node.featuredImage.node.imageFile.childImageSharp.fixed} alt={node.title}/>
                     <div dangerouslySetInnerHTML={{ __html: node.title }} />
               </Link>
-                  {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
-            </>
           ))}
         <br/>
         <Link to={`/blog`}>See all Blog Posts...</Link>
@@ -48,7 +44,6 @@ const IndexPage = ({data}) => (
           {data.wpgraphql.talks.edges.map(({ node }) => (
             <li key={node.slug}>
               <Link to={`/${node.slug}`} dangerouslySetInnerHTML={{ __html: node.title }}></Link>
-              {/* <div dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
             </li>
           ))}
             </ul>
@@ -79,9 +74,6 @@ export default IndexPage
 export const pageQuery = graphql`
   query GET_POSTS {
     wpgraphql {
-      natepic: mediaItem(id: "2030", idType: DATABASE_ID) {
-        sourceUrl(size: MEDIUM)
-      }
       blogs: posts(first: 6, after: null, where: {categoryName: "blog"}) {
         edges {
           node {
